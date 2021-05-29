@@ -6,6 +6,7 @@ Unofficial PyTorch implementation of Neural Additive Models (NAM) ([`abs`](https
 ---
 
 ## Installation
+
 You can access `nam-pytorch` via `pip`:
 
 ```bash
