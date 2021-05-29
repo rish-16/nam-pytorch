@@ -23,13 +23,14 @@ class FeatureNetwork(nn.Module):
         return out
 
 class NAM(nn.Module):
-    def __init__(self, num_features):
+    def __init__(self, num_features, link_func="sigmoid"):
         super().__init__()
         self.networks = nn.ModuleList([
             FeatureNetwork() for _ in range(num_features)
         ])
         self.num_features = num_features
         self.bias = nn.Parameter(torch.rand(1)) # extra beta term
+        self.link_func = link_func
 
     def forward(self, x):
         B, dim = x.shape
@@ -44,6 +45,10 @@ class NAM(nn.Module):
             outs[i] = temp
 
         summed = outs.sum(axis=1) + self.bias
-        res = torch.sigmoid(summed).view(B, 1)
+
+        if self.link_func == "sigmoid":
+            res = torch.sigmoid(summed).view(B, 1)
+        elif self.link_func == "tanh":
+            res = torch.tanh(summed).view(B, 1)
 
         return res

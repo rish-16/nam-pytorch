@@ -19,9 +19,13 @@ $ pip install nam-pytorch
 import torch 
 from nam_pytorch import NAM
 
-nam = NAM(784)
-x = torch.rand(32, 784)
-y = nam(x) # [32, 1]
+nam = NAM(
+    num_features=784,
+    link_func="sigmoid"
+)
+
+images = torch.rand(32, 784)
+pred = nam(images) # [32, 1]
 ```
 
 ## Contributing
