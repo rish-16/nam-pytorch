@@ -1,7 +1,7 @@
 # nam-pytorch
 Unofficial PyTorch implementation of Neural Additive Models (NAM) by Agarwal, et al. [[`abs`](https://arxiv.org/abs/2004.13912), [`pdf`](https://arxiv.org/pdf/2004.13912.pdf)]
 
-<img width=600 src="pic.png" />
+<img width=600 src="https://github.com/rish-16/nam-pytorch/raw/main/pic.png" />
 
 ---
 
